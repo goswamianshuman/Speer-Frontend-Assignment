@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -8,19 +8,26 @@ import {
   DialogTrigger,
 } from "../ui/dialog";
 import { ArrowUpRightFromCircle as SelectIcon } from "lucide-react";
+import InfoTable from "./info-table";
+import { useTrigger } from "@/lib/hooks/useTrigger";
 
-const CardDialog = () => {
+const CardDialog = ({ id }) => {
+  const trigger = useTrigger();
   return (
     <Dialog>
       <DialogTrigger>
-        <SelectIcon className="h-4 w-4 text-muted-foreground" />
+        <SelectIcon
+          onClick={() => {
+            trigger.activate();
+          }}
+          className="h-4 w-4 text-muted-foreground"
+        />
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Are you sure absolutely sure?</DialogTitle>
+          <DialogTitle>Caller specific details</DialogTitle>
           <DialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+            <InfoTable id={id} />
           </DialogDescription>
         </DialogHeader>
       </DialogContent>
