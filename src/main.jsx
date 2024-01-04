@@ -15,8 +15,8 @@ const App = () => {
         <div className="max-w-6xl w-full mx-auto relative">
           <Navbar />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/archives" element={<Archive />} />
+            <Route path="/" element={<FeedPage />} />
+            <Route path="/archives" element={<ArchivePage />} />
           </Routes>
         </div>
         <Toaster />

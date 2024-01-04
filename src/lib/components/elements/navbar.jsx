@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ModeToggle } from "../others/mode-toggle";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useTrigger } from "@/lib/hooks/useTrigger";
 import { Button } from "../ui/button";
 import { RotateCcw, Package } from "lucide-react";
@@ -93,7 +93,7 @@ const Navbar = () => {
     <header className="fixed top-3 inset-x-0 max-w-md md:max-w-3xl w-full mx-auto py-2 rounded-md backdrop-filter backdrop-blur-sm bg-foreground/5 flex items-center justify-between px-5 z-[99999]">
       <nav className="flex items-center gap-x-5">
         {navLinks.map((data, i) => (
-          <a
+          <Link
             onClick={() => trigger.activate()}
             key={i}
             className={`${
@@ -101,10 +101,10 @@ const Navbar = () => {
                 ? "bg-purple-500"
                 : "hover:bg-purple-500/30"
             } px-4 py-1 rounded-md transition-all ease-linear duration-200`}
-            href={data.href}
+            to={data.href}
           >
             {data.title}
-          </a>
+          </Link>
         ))}
       </nav>
       <div className="flex items-center gap-x-2">
