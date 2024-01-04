@@ -1,3 +1,4 @@
+import { Loader } from "@/lib/components/elements/loader";
 import CallerCard from "@/lib/components/others/caller-card";
 import { Button } from "@/lib/components/ui/button";
 import { useTrigger } from "@/lib/hooks/useTrigger";
@@ -20,6 +21,14 @@ export default function FeedPage() {
   useEffect(() => {
     fetchData();
   }, [data, trigger.active]);
+
+  if (data.length === 0) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <Loader size={"sm"} />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen">

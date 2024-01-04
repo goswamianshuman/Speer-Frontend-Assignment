@@ -19,7 +19,15 @@ export default function ArchivePage() {
 
   useEffect(() => {
     fetchData();
-  }, [trigger.active ? trigger.active : data]);
+  }, [trigger.active, data]);
+
+  if (data.length === 0) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-md">No Archived data</p>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen">
