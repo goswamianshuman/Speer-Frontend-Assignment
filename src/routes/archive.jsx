@@ -1,7 +1,7 @@
 import CallerCard from "@/lib/components/others/caller-card";
 import { useEffect, useState } from "react";
 
-export default function FeedPage() {
+export default function ArchivePage() {
   const [data, setData] = useState([]);
 
   const fetchData = async () => {

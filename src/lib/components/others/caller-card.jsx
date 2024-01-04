@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  PhoneOutgoing,
-  PhoneIncoming,
-  Phone,
-  ArrowUpRightFromCircle as SelectIcon,
-} from "lucide-react";
+import { PhoneOutgoing, PhoneIncoming, Phone } from "lucide-react";
 import { format } from "date-fns";
 import { Badge } from "../ui/badge";
 import ArchiveToolTip from "./archive-tool-tip";
@@ -24,9 +19,6 @@ const CallerCard = ({ data }) => {
         </p>
 
         <div className="flex items-center justify-end gap-x-2">
-          <a href={`/${id}`}>
-            <SelectIcon className="h-4 w-4 text-muted-foreground" />
-          </a>
           •
           {is_archived === true && (
             <>
@@ -69,15 +61,11 @@ const CallerCard = ({ data }) => {
             <p className="text-muted-foreground text-sm">
               for {to ? to : "unknown"}
             </p>
-            {/* via
-          <p>{via}</p> */}
           </div>
         </div>
       </div>
 
       <div className="flex items-center justify-end gap-x-1 mt-6">
-        {/* duration
-          <p>{duration}</p> */}
         <p className="text-xs font-mono tracking-tighter text-muted-foreground">
           {formattedDate}
         </p>
