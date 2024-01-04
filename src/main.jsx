@@ -8,17 +8,21 @@ import FeedPage from "./routes/home.jsx";
 import ArchivePage from "./routes/archive.jsx";
 import { Toaster } from "./lib/components/ui/sonner";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-    <BrowserRouter>
-      <div className="max-w-6xl w-full mx-auto relative">
-        <Navbar />
-        <Routes>
-          <Route exact path="/" element={<FeedPage />} />
-          <Route path="/archives" element={<ArchivePage />} />
-        </Routes>
-      </div>
-      <Toaster />
-    </BrowserRouter>
-  </ThemeProvider>
-);
+const App = () => {
+  return (
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <BrowserRouter>
+        <div className="max-w-6xl w-full mx-auto relative">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/archives" element={<Archive />} />
+          </Routes>
+        </div>
+        <Toaster />
+      </BrowserRouter>
+    </ThemeProvider>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
