@@ -16,24 +16,13 @@ export default function ArchivePage() {
         .then((res) => res.json())
         .then((data) => {
           setData(data);
-          checkArchived();
+
+          // Check if all is_archived values are false
+          const allNotArchived = data.every((item) => !item.is_archived);
+          setArchived(!allNotArchived);
         });
     } catch (error) {
       console.log(error);
-    }
-  };
-
-  const checkArchived = () => {
-    let count = 0;
-    for (let i = 0; i < data.length; i++) {
-      if (data[i].is_archived === false) {
-        count = count + 1;
-      }
-    }
-    if (count != data.length) {
-      setArchived(false);
-    } else {
-      setArchived(true);
     }
   };
 
